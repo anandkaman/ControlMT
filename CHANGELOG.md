@@ -67,7 +67,7 @@ form-preservation training for numerical fidelity.
 
 ### Changed
 - **Tokenizer unchanged from v2.1** — same SentencePiece Unigram 128K. Standardized BPE
-  retraining is planned post-v2.2 (CONTROLMT.md Section 3.1) as part of the library bundle.
+  retraining is planned post-v2.2 as part of the library bundle.
 - **Training resumed from smoke best.pt** (val=2.36) on enriched corpus → final best.pt val=**2.1916**
   (vs v2.1's 2.38). Improvement: +0.19 perplexity reduction in log-space.
 - **Decoding default**: now `num_beams=6` (was 4 in v2.1 inference). Anti-LM α=0.5 enabled by default.
@@ -91,7 +91,7 @@ form-preservation training for numerical fidelity.
 
 ### Roadmap
 - **v2.3 (~September 2026, ~3 months)**: Hindi support, iterative back-translation,
-  idiom-pair augmentation, standardized BPE tokenizer (CONTROLMT.md Section 3.1).
+  idiom-pair augmentation, standardized BPE tokenizer.
 - **v3.0 (TBD)**: Copy-mechanism / pointer-generator for OOV-proof transliteration.
 
 ---

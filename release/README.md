@@ -181,22 +181,20 @@ The model is conditioned on TWO tokens prepended to each source sequence:
 | `[JSON]` | 10 | Source/target is JSON content |
 | `[TEXT]` | 11 | Plain text (default) |
 
-**Pick the style that matches your text** (this matters more than people expect):
+**Honest note on style differentiation (measured 2026-06-23)**:
 
-| If your input is … | Use this style | Why |
-|---|---|---|
-| Chat, social media, dialogue, customer support | **`CASUAL`** | Trained on colloquial KN like `ನಂಗೆ ಸ್ಕೂಲಿಲ್ಲ`, contracted forms, informal address |
-| News, blog posts, e-commerce copy, app strings | **`NATURAL`** (default) | Fluent everyday register — the safe default if you're unsure |
-| Government notices, legal documents, formal letters | **`FORMAL`** | Honorific verb forms, formal address, no contractions |
-| Word-for-word translation (medical, legal review, source-preserving) | **`STRICT`** | Minimizes paraphrase; preserves source structure |
+| Style | Output behavior |
+|---|---|
+| **FORMAL** | Meaningfully distinct — more conservative phrasing, longer-form verbs, no contractions. Use this for govt notices, legal documents, official communication. |
+| **STRICT / NATURAL / CASUAL** | **Converge in most cases** — produce nearly identical output on our 20-pair IN22-Conv ablation (BLEU 25.16 / 25.42 / 25.57 KN→EN; identical 11.47 EN→KN). |
 
-Mismatch is cheap but real: using `NATURAL` on chat-grade Kannada (or `CASUAL` on a
-government notice) costs ~3-5 BLEU vs the matched style on the same reference set,
-because BLEU rewards lexical/register match against the reference. CometKiwi (a QE
-model that judges meaning + fluency, not n-gram overlap) is much more forgiving.
-See Section 4.4 IN22-Conv for the concrete demonstration of this effect.
+**Why:** the training corpus was ~95% auto-labeled `NATURAL`, leaving the STRICT/CASUAL signal underrepresented. The tokens are correctly wired into the architecture and the model learned the FORMAL register clearly, but the casual/strict registers didn't separate during this training run.
 
-Input formatting at inference time:
+**For users today**: treat the choice as a **2-way toggle** — `FORMAL` for official/conservative output, anything else (`NATURAL`, `STRICT`, or `CASUAL`) for general translation. The default `NATURAL` is the safe choice. The model handles colloquial Kannada inputs well via the encoder (e.g., `ನಂಗೆ ಸ್ಕೂಲಿಲ್ಲ` is understood correctly); style separation in the *output* is what's currently limited to FORMAL-vs-rest.
+
+**v2.3 plan**: rebalance style labels in the training corpus, add a contrastive style-separation loss, and verify all four styles produce empirically distinct outputs on the ablation suite before release. See [`eval_results/style_ablation_in22_conv.md`](eval_results/style_ablation_in22_conv.md) for the full measurement.
+
+**Input formatting at inference time:**
 ```
 [BOS] [DIRECTION] [STYLE] <source tokens> [EOS]
 ```
@@ -380,10 +378,21 @@ BLEU 21.03 / COMET 0.8193 — within striking distance at the smaller size, usin
 the same default-style configuration. Aggregate JSON:
 [`eval_results/in22_conv.json`](eval_results/in22_conv.json).
 
-#### eval_curated_v22 (~800 pairs, internal style-stratified set)
+#### eval_curated_v22 (800 pairs, internal style-stratified set — 200 per style)
 
-🔄 _Internal curated eval (200 pairs per STRICT/NATURAL/FORMAL/CASUAL style bucket).
-Aggregate landing as [`eval_results/eval_curated_v22.json`](eval_results/) — published as a supplementary artifact alongside this release._
+| Metric | KN → EN | EN → KN |
+|---|---|---|
+| **CometKiwi (no ref)** | **0.8382** | **0.8916** |
+| **COMET-DA (with ref)** | **0.8746** | **0.8974** |
+| BLEU | 36.66 | 22.67 |
+| chrF | 60.51 | 57.47 |
+
+**Ship-gate verdict: ✅ STRONG PASS** — both directions clear the **0.85 aspirational COMET-DA target**;
+CometKiwi well above aspirational; BLEU/chrF are our best across any test set.
+
+This curated set is the closest match to ControlMT's intended deployment profile: balanced across
+the four style registers + entity-heavy + numerical edge cases + safety regression. Aggregate
+JSON: [`eval_results/eval_curated_v22.json`](eval_results/eval_curated_v22.json).
 
 ### 4.5 Comparison vs peer models
 
@@ -611,7 +620,7 @@ If you use ControlMT v2.2 in research, please cite:
 | Version | Target date | Planned changes |
 |---------|------------|------------------|
 | **v2.2** | 2026-06-23 (this release) | Numerical fidelity fix, decoder hygiene, CM-Concatenation Level A, EMA+SWA, Anti-LM decoding |
-| **v2.3** | ~September 2026 (~3 months) | Hindi support (`[HI2EN]` / `[EN2HI]`), iterative back-translation, idiom-pair augmentation, standardized BPE tokenizer (CONTROLMT.md Section 3.1) |
+| **v2.3** | ~September 2026 (~3 months) | Hindi support (`[HI2EN]` / `[EN2HI]`), iterative back-translation, idiom-pair augmentation, standardized BPE tokenizer |
 | **v3.0** | TBD | Copy-mechanism / pointer-generator for true OOV-proof transliteration (Strategy D). Multi-Indic. |
 
 ---

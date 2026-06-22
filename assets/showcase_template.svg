@@ -52,8 +52,8 @@
   <line x1="120" y1="320" x2="960" y2="320" stroke="#2C3E48" stroke-width="2"/>
 
   <!-- Headline benchmark card -->
-  <text class="h2" x="540" y="380" font-size="38" text-anchor="middle">FLORES-200 devtest</text>
-  <text class="mute" x="540" y="412" font-size="22" text-anchor="middle">1,012 pairs · independent QE + reference scoring</text>
+  <text class="h2" x="540" y="380" font-size="38" text-anchor="middle">{{EVAL_SET_LABEL}}</text>
+  <text class="mute" x="540" y="412" font-size="22" text-anchor="middle">{{EVAL_SET_DESC}}</text>
 
   <!-- Column headers -->
   <text class="mute" x="320" y="475" font-size="24">Metric</text>

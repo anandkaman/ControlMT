@@ -1,7 +1,7 @@
 {
   "test_set": "IN22-Gen",
-  "source": "AI4Bharat/BPCC (https://huggingface.co/datasets/ai4bharat/BPCC, additional/IN22_testset.zip)",
-  "domain": "India-specific multi-domain (Wiki + Web subsets)",
+  "source": "AI4Bharat/BPCC",
+  "domain": "India-specific multi-domain",
   "n_pairs": 1024,
   "checkpoint": "checkpoints_v22/best_swa.pt",
   "decoding": {
@@ -29,11 +29,5 @@
       "bleu": 11.73,
       "chrf": 50.42
     }
-  },
-  "ship_floor_verdict": {
-    "comet_kn2en": "PASS (>= 0.82)",
-    "comet_en2kn": "PASS (>= 0.82)",
-    "kiwi_kn2en": "ASPIRATIONAL (>= 0.80)",
-    "kiwi_en2kn": "ASPIRATIONAL (>= 0.80)"
   }
 }

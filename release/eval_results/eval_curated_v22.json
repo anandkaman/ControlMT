@@ -1,8 +1,8 @@
 {
-  "test_set": "IN22-Conv",
-  "source": "AI4Bharat/BPCC",
-  "domain": "Multi-turn conversational",
-  "n_pairs": 1503,
+  "test_set": "Curated v2.2 stratified sample",
+  "source": "master_v22.jsonl (stratified 200 per style)",
+  "domain": "Style-balanced internal",
+  "n_pairs": 800,
   "checkpoint": "checkpoints_v22/best_swa.pt",
   "decoding": {
     "method": "beam_search",
@@ -18,16 +18,16 @@
   },
   "scores": {
     "kn2en": {
-      "kiwi": 0.8134,
-      "comet": 0.8193,
-      "bleu": 21.03,
-      "chrf": 46.28
+      "kiwi": 0.8382,
+      "comet": 0.8746,
+      "bleu": 36.66,
+      "chrf": 60.51
     },
     "en2kn": {
-      "kiwi": 0.8852,
-      "comet": 0.832,
-      "bleu": 5.3,
-      "chrf": 35.12
+      "kiwi": 0.8916,
+      "comet": 0.8974,
+      "bleu": 22.67,
+      "chrf": 57.47
     }
   }
 }

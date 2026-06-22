@@ -1,0 +1,13 @@
+{
+  "tokenizer_class": "ControlMTTokenizer",
+  "auto_map": {
+    "AutoTokenizer": ["tokenization_controlmt.ControlMTTokenizer", null]
+  },
+  "model_max_length": 320,
+  "bos_token": "<s>",
+  "eos_token": "</s>",
+  "unk_token": "<unk>",
+  "pad_token": "<pad>",
+  "clean_up_tokenization_spaces": false,
+  "use_fast": false
+}

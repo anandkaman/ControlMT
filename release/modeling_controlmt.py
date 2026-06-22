@@ -11,21 +11,14 @@ Anti-LM contrastive decoding (the v2.2 default).
 
 from __future__ import annotations
 
-import os
-import sys
-from pathlib import Path
-
 import torch
 import torch.nn.functional as F
 from transformers import PreTrainedModel
 from transformers.modeling_outputs import Seq2SeqLMOutput
 
 from .configuration_controlmt import ControlMTConfig
-
-# Import native architecture from sibling model.py
-_THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, _THIS_DIR)
-from model import ControlMT as _NativeControlMT, BOS_ID, EOS_ID, PAD_ID
+# Relative import — HF's trust_remote_code auto-downloads model.py alongside this file
+from .model import ControlMT as _NativeControlMT, BOS_ID, EOS_ID, PAD_ID
 
 
 class ControlMTForSeq2SeqLM(PreTrainedModel):
