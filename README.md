@@ -7,10 +7,6 @@
 [![HuggingFace](https://img.shields.io/badge/🤗-anandkaman%2Fcontrolmt--v2.2-yellow)](https://huggingface.co/anandkaman/controlmt-v2.2)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
-<p align="center">
-  <img src="showcase.png" alt="ControlMT v2.2 release showcase" width="540"/>
-</p>
-
 ---
 
 ## Quick start
