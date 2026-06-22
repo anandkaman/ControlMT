@@ -4,8 +4,14 @@
 > with per-row style control (STRICT / NATURAL / FORMAL / CASUAL), code-mix-native training,
 > and Anti-LM contrastive decoding.
 
-[![HuggingFace](https://img.shields.io/badge/🤗-anandkaman%2Fcontrolmt--v2.2-yellow)](https://huggingface.co/anandkaman/controlmt-v2.2)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
+[![Status](https://img.shields.io/badge/status-v2.3%20in%20development-orange)](#)
+
+> **🚧 v2.3 is in active development.** Earlier v2.2 weights have been pulled from
+> public HuggingFace pending v2.3 release. v2.3 removes style-token fragmentation
+> (which underperformed at 139M scale) and refocuses the model's capacity on
+> single-register translation quality. Expected ship: 2026-06-26 (3 days).
+> If you're looking for the model files, please get in touch directly.
 
 ---
 
