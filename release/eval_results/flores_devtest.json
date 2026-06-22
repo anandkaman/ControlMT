@@ -1,0 +1,61 @@
+{
+  "test_set": "FLORES-200 devtest (kan_Knda ↔ eng_Latn)",
+  "source": "Meta CDN https://dl.fbaipublicfiles.com/nllb/flores200_dataset.tar.gz",
+  "n_pairs": 1012,
+  "checkpoint": "checkpoints_v22/best_swa.pt",
+  "decoding": {
+    "method": "beam_search",
+    "num_beams": 6,
+    "length_penalty": 1.2,
+    "no_repeat_ngram_size": 3,
+    "anti_lm_alpha": 0.5
+  },
+  "scoring_models": {
+    "comet_kiwi": "Unbabel/wmt22-cometkiwi-da",
+    "comet_da": "Unbabel/wmt22-comet-da",
+    "surface": "sacrebleu (BLEU + chrF)"
+  },
+  "scores": {
+    "kn2en": {
+      "kiwi": 0.8412,
+      "comet": 0.8409,
+      "bleu": 26.81,
+      "chrf": 55.39
+    },
+    "en2kn": {
+      "kiwi": 0.8623,
+      "comet": 0.8405,
+      "bleu": 17.98,
+      "chrf": 55.56
+    }
+  },
+  "ship_floor_verdict": {
+    "comet_kn2en": "PASS (>= 0.82)",
+    "comet_en2kn": "PASS (>= 0.82)",
+    "kiwi_kn2en": "ASPIRATIONAL (>= 0.80)",
+    "kiwi_en2kn": "ASPIRATIONAL (>= 0.80)"
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5060 Ti 16 GB (Blackwell)",
+    "cpu": "x86_64",
+    "ram": "15 GB",
+    "platform": "Linux 6.8.0-117-generic"
+  },
+  "wall_clock": {
+    "stage1_translation_minutes": 150.0,
+    "stage2_cometkiwi_minutes": 0.5,
+    "stage3_comet_da_minutes": 0.5,
+    "stage4_sacrebleu_seconds": 5.0,
+    "total_minutes": 152.0
+  },
+  "reproducibility": {
+    "deterministic": true,
+    "reason": "beam search is deterministic given fixed seed; anti-LM contrastive decode is deterministic; CometKiwi and COMET-DA forward passes are deterministic on the same GPU.",
+    "command": "python scripts/eval_release.py --test final_dataset/eval/flores_devtest.jsonl --ckpt checkpoints_v22/best_swa.pt --beam 6 --anti-lm-alpha 0.5"
+  },
+  "contamination_disclosure": {
+    "risk": "minor but real",
+    "details": "FLORES-200 was created in 2022 from Wikipedia articles by professional human translators. Our training corpus (Samanantar/Sangraha/BPCC/Anuvaad) draws from web sources that include some Wikipedia content. The model has not seen the FLORES devtest sentences specifically (those were translated independently by FLORES annotators), but it has likely seen overlapping subject matter and may share entity coverage. This is the standard risk all MT models published on FLORES face — NLLB/IndicTrans2/Tower face the same. We do not consider this disqualifying for benchmark reporting, but disclose it for transparency.",
+    "mitigation": "Comparison scores reported alongside IN22-Gen and IN22-Conv (different distribution) and our own curated eval set should triangulate quality."
+  }
+}

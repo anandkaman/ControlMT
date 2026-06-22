@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <!--
+    ControlMT pre-release / release showcase banner template.
+    Mustache-style placeholders are replaced by scripts/render_showcase.py
+    from a JSON values file (see assets/showcase_values_v2.2.json).
+    Render to PNG via:  rsvg-convert input.svg -o showcase.png
+  -->
+
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F1B22"/>
+      <stop offset="100%" stop-color="#18242B"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#41E4D8"/>
+      <stop offset="100%" stop-color="#56B5C0"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .body  { font-family: "Noto Sans", "DejaVu Sans", sans-serif; fill: #DCE7EE; }
+    .kn    { font-family: "Noto Sans Kannada", "Noto Sans", sans-serif; fill: #DCE7EE; }
+    .title { font-family: "Noto Sans", sans-serif; font-weight: 800; fill: url(#titleGrad); }
+    .mute  { fill: #8FA3AD; }
+    .num   { fill: #41E4D8; font-weight: 700; }
+    .ok    { fill: #4CD964; font-weight: 700; }
+    .bad   { fill: #FF6B6B; font-weight: 700; }
+    .arrow { fill: #FFB84D; font-weight: 700; }
+    .h2    { font-family: "Noto Sans", sans-serif; font-weight: 700; fill: #41E4D8; }
+    .badge { fill: #2C3E48; }
+    .badgeTxt { font-family: "Noto Sans", sans-serif; font-weight: 700; fill: #DCE7EE; }
+    .ribbon { fill: #FFB84D; }
+    .ribbonTxt { font-family: "Noto Sans", sans-serif; font-weight: 800; fill: #18242B; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bgGrad)"/>
+
+  <!-- Pre-release ribbon (top-right corner) -->
+  <g>
+    <rect class="ribbon" x="780" y="32" width="270" height="44" rx="22"/>
+    <text class="ribbonTxt" x="915" y="62" font-size="22" text-anchor="middle">{{RIBBON_TEXT}}</text>
+  </g>
+
+  <!-- Title block -->
+  <text class="title" x="540" y="180" font-size="92" text-anchor="middle">ControlMT {{VERSION}}</text>
+  <text class="body" x="540" y="230" font-size="34" text-anchor="middle">Kannada ↔ English Translator</text>
+  <text class="mute" x="540" y="270" font-size="24" text-anchor="middle">{{PARAMS}} · {{LICENSE}} · Release {{RELEASE_DATE}}</text>
+
+  <!-- Divider -->
+  <line x1="120" y1="320" x2="960" y2="320" stroke="#2C3E48" stroke-width="2"/>
+
+  <!-- Headline benchmark card -->
+  <text class="h2" x="540" y="380" font-size="38" text-anchor="middle">FLORES-200 devtest</text>
+  <text class="mute" x="540" y="412" font-size="22" text-anchor="middle">1,012 pairs · independent QE + reference scoring</text>
+
+  <!-- Column headers -->
+  <text class="mute" x="320" y="475" font-size="24">Metric</text>
+  <text class="num"  x="700" y="475" font-size="24" text-anchor="middle">KN→EN</text>
+  <text class="num"  x="900" y="475" font-size="24" text-anchor="middle">EN→KN</text>
+
+  <line x1="120" y1="495" x2="960" y2="495" stroke="#2C3E48" stroke-width="1"/>
+
+  <!-- Score rows -->
+  <text class="body" x="140" y="545" font-size="26">CometKiwi-DA <tspan class="mute" font-size="20">(no ref)</tspan></text>
+  <text class="num"  x="700" y="545" font-size="30" text-anchor="middle">{{COMETKIWI_KN_EN}}</text>
+  <text class="num"  x="900" y="545" font-size="30" text-anchor="middle">{{COMETKIWI_EN_KN}}</text>
+
+  <text class="body" x="140" y="600" font-size="26">COMET-DA <tspan class="mute" font-size="20">(with ref)</tspan></text>
+  <text class="num"  x="700" y="600" font-size="30" text-anchor="middle">{{COMET_KN_EN}}</text>
+  <text class="num"  x="900" y="600" font-size="30" text-anchor="middle">{{COMET_EN_KN}}</text>
+
+  <text class="body" x="140" y="655" font-size="26">BLEU <tspan class="mute" font-size="20">(sacrebleu)</tspan></text>
+  <text class="num"  x="700" y="655" font-size="30" text-anchor="middle">{{BLEU_KN_EN}}</text>
+  <text class="num"  x="900" y="655" font-size="30" text-anchor="middle">{{BLEU_EN_KN}}</text>
+
+  <text class="body" x="140" y="710" font-size="26">chrF</text>
+  <text class="num"  x="700" y="710" font-size="30" text-anchor="middle">{{CHRF_KN_EN}}</text>
+  <text class="num"  x="900" y="710" font-size="30" text-anchor="middle">{{CHRF_EN_KN}}</text>
+
+  <!-- Compactness badge row -->
+  <g transform="translate(120, 760)">
+    <rect class="badge" x="0"   y="0" width="270" height="60" rx="30"/>
+    <text class="badgeTxt" x="135" y="40" font-size="22" text-anchor="middle">{{BADGE_1}}</text>
+    <rect class="badge" x="285" y="0" width="270" height="60" rx="30"/>
+    <text class="badgeTxt" x="420" y="40" font-size="22" text-anchor="middle">{{BADGE_2}}</text>
+    <rect class="badge" x="570" y="0" width="270" height="60" rx="30"/>
+    <text class="badgeTxt" x="705" y="40" font-size="22" text-anchor="middle">{{BADGE_3}}</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="120" y1="870" x2="960" y2="870" stroke="#2C3E48" stroke-width="2"/>
+
+  <!-- What makes ControlMT specialised -->
+  <text class="h2" x="540" y="930" font-size="34" text-anchor="middle">What makes ControlMT specialised</text>
+  <text class="body" x="140" y="985"  font-size="26"><tspan class="ok">✓</tspan> {{SPEC_1}}</text>
+  <text class="body" x="140" y="1025" font-size="26"><tspan class="ok">✓</tspan> {{SPEC_2}}</text>
+  <text class="body" x="140" y="1065" font-size="26"><tspan class="ok">✓</tspan> {{SPEC_3}}</text>
+  <text class="body" x="140" y="1105" font-size="26"><tspan class="ok">✓</tspan> {{SPEC_4}}</text>
+  <text class="body" x="140" y="1145" font-size="26"><tspan class="ok">✓</tspan> {{SPEC_5}}</text>
+  <text class="kn"   x="140" y="1185" font-size="26"><tspan class="ok">✓</tspan> {{SPEC_6}}</text>
+
+  <!-- Divider -->
+  <line x1="120" y1="1230" x2="960" y2="1230" stroke="#2C3E48" stroke-width="2"/>
+
+  <!-- Where we stand vs competition -->
+  <text class="h2" x="540" y="1290" font-size="34" text-anchor="middle">Where we stand</text>
+  <text class="body" x="140" y="1345" font-size="24"><tspan class="ok">✓</tspan> {{STAND_1}}</text>
+  <text class="body" x="140" y="1385" font-size="24"><tspan class="ok">✓</tspan> {{STAND_2}}</text>
+  <text class="body" x="140" y="1425" font-size="24"><tspan class="ok">✓</tspan> {{STAND_3}}</text>
+  <text class="body" x="140" y="1465" font-size="24"><tspan class="ok">✓</tspan> {{STAND_4}}</text>
+  <text class="body" x="140" y="1505" font-size="24"><tspan class="ok">✓</tspan> {{STAND_5}}</text>
+
+  <!-- Divider -->
+  <line x1="120" y1="1555" x2="960" y2="1555" stroke="#2C3E48" stroke-width="2"/>
+
+  <!-- Coming Soon -->
+  <text class="h2" x="540" y="1615" font-size="34" text-anchor="middle">Coming in {{NEXT_VERSION}} — {{NEXT_DATE}}</text>
+  <text class="body" x="140" y="1670" font-size="26"><tspan class="arrow">→</tspan> {{NEXT_1}}</text>
+  <text class="body" x="140" y="1710" font-size="26"><tspan class="arrow">→</tspan> {{NEXT_2}}</text>
+  <text class="body" x="140" y="1750" font-size="26"><tspan class="arrow">→</tspan> {{NEXT_3}}</text>
+  <text class="body" x="140" y="1790" font-size="26"><tspan class="arrow">→</tspan> {{NEXT_4}}</text>
+
+  <!-- Footer URLs -->
+  <text class="mute" x="540" y="1860" font-size="22" text-anchor="middle">{{URL_1}}</text>
+  <text class="mute" x="540" y="1895" font-size="22" text-anchor="middle">{{URL_2}}</text>
+</svg>

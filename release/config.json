@@ -1,0 +1,105 @@
+{
+  "model_type": "controlmt",
+  "architectures": [
+    "ControlMTForSeq2SeqLM"
+  ],
+  "model_name": "ControlMT-v2.2",
+  "trained_by": "Anand Kaman",
+  "release_date": "2026-06-23",
+
+  "vocab_size": 128000,
+  "d_model": 512,
+  "n_heads": 8,
+  "d_ff": 2048,
+  "dropout": 0.1,
+  "encoder_layers_per_lang": 2,
+  "decoder_layers_per_lang": 2,
+  "shared_core_enc_layers": 6,
+  "shared_core_dec_layers": 6,
+  "max_position_embeddings": 320,
+  "max_input_length": 256,
+
+  "pad_token_id": 0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "unk_token_id": 3,
+
+  "direction_tokens": {
+    "kn2en": 4,
+    "en2kn": 5,
+    "rkn2kn": 12,
+    "rkn2en": 13,
+    "hi2en": 14,
+    "en2hi": 15
+  },
+  "control_tokens": {
+    "strict": 6,
+    "natural": 7,
+    "formal": 8,
+    "casual": 9,
+    "json": 10,
+    "text": 11
+  },
+  "default_control_token_id": 7,
+
+  "decoding_presets": {
+    "default": {
+      "method": "beam_search",
+      "num_beams": 6,
+      "length_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "anti_lm_alpha": 0.5,
+      "max_length": 256,
+      "description": "Production setting — matches reported FLORES / IN22 benchmark numbers"
+    },
+    "fast": {
+      "method": "beam_search",
+      "num_beams": 4,
+      "length_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "anti_lm_alpha": 0.0,
+      "max_length": 256,
+      "description": "~2x faster than default, ~0.5 BLEU lower"
+    },
+    "greedy": {
+      "method": "greedy",
+      "num_beams": 1,
+      "max_length": 256,
+      "description": "Fastest. ~1.5 BLEU lower than default. Use for high-throughput batch."
+    },
+    "high_quality": {
+      "method": "beam_search",
+      "num_beams": 8,
+      "length_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "anti_lm_alpha": 0.7,
+      "max_length": 256,
+      "description": "~30% slower than default, marginal quality gain (~0.2 BLEU)"
+    }
+  },
+
+  "training_config": {
+    "framework": "PyTorch 2.x",
+    "precision": "bf16 mixed",
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "lr_schedule": "warmup + per-epoch step decay",
+    "warmup_steps": 4000,
+    "label_smoothing": 0.1,
+    "grad_clip_norm": 1.0,
+    "effective_batch_size": 96,
+    "ema_decay": 0.999,
+    "ema_start_step": 1000,
+    "swa": true,
+    "swa_inputs": ["best.pt", "step_1400000.pt", "step_1425000.pt", "step_1435000.pt"]
+  },
+
+  "tokenizer_class": "ControlMTTokenizer",
+  "auto_map": {
+    "AutoConfig": "configuration_controlmt.ControlMTConfig",
+    "AutoModelForSeq2SeqLM": "modeling_controlmt.ControlMTForSeq2SeqLM",
+    "AutoTokenizer": "tokenization_controlmt.ControlMTTokenizer"
+  },
+
+  "transformers_version": "4.40+"
+}

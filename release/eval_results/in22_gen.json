@@ -1,0 +1,39 @@
+{
+  "test_set": "IN22-Gen",
+  "source": "AI4Bharat/BPCC (https://huggingface.co/datasets/ai4bharat/BPCC, additional/IN22_testset.zip)",
+  "domain": "India-specific multi-domain (Wiki + Web subsets)",
+  "n_pairs": 1024,
+  "checkpoint": "checkpoints_v22/best_swa.pt",
+  "decoding": {
+    "method": "beam_search",
+    "num_beams": 6,
+    "length_penalty": 1.2,
+    "no_repeat_ngram_size": 3,
+    "anti_lm_alpha": 0.5
+  },
+  "scoring_models": {
+    "comet_kiwi": "Unbabel/wmt22-cometkiwi-da",
+    "comet_da": "Unbabel/wmt22-comet-da",
+    "surface": "sacrebleu"
+  },
+  "scores": {
+    "kn2en": {
+      "kiwi": 0.8261,
+      "comet": 0.8369,
+      "bleu": 27.62,
+      "chrf": 56.77
+    },
+    "en2kn": {
+      "kiwi": 0.8631,
+      "comet": 0.825,
+      "bleu": 11.73,
+      "chrf": 50.42
+    }
+  },
+  "ship_floor_verdict": {
+    "comet_kn2en": "PASS (>= 0.82)",
+    "comet_en2kn": "PASS (>= 0.82)",
+    "kiwi_kn2en": "ASPIRATIONAL (>= 0.80)",
+    "kiwi_en2kn": "ASPIRATIONAL (>= 0.80)"
+  }
+}

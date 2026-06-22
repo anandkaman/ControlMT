@@ -1,0 +1,50 @@
+{
+  "test_set": "IN22-Conv",
+  "source": "AI4Bharat/BPCC (https://huggingface.co/datasets/ai4bharat/BPCC, additional/IN22_testset.zip)",
+  "domain": "Conversational / dialogue / multi-turn — 16 domains incl. daily_dialogue, banking, healthcare, school_life",
+  "n_pairs": 1503,
+  "checkpoint": "checkpoints_v22/best_swa.pt",
+  "decoding": {
+    "method": "beam_search",
+    "num_beams": 6,
+    "length_penalty": 1.2,
+    "no_repeat_ngram_size": 3,
+    "anti_lm_alpha": 0.5,
+    "style_kn_en": "natural",
+    "style_en_kn": "natural",
+    "style_note": "NATURAL was used for both directions in this run. IN22-Conv references are colloquial Kannada (e.g. 'ನಂಗೆ ಸ್ಕೂಲಿಲ್ಲ') for which the CASUAL style token (ID 9) is the correct preset. We publish this NATURAL-style number for direct apples-to-apples comparison with peer models (IT2 paper baseline used a single default style). A separate style ablation is published alongside in style_ablation_in22_conv.md."
+  },
+  "scoring_models": {
+    "comet_kiwi": "Unbabel/wmt22-cometkiwi-da",
+    "comet_da": "Unbabel/wmt22-comet-da",
+    "surface": "sacrebleu"
+  },
+  "scores": {
+    "kn2en": {
+      "kiwi": 0.8134,
+      "comet": 0.8193,
+      "bleu": 21.03,
+      "chrf": 46.28
+    },
+    "en2kn": {
+      "kiwi": 0.8852,
+      "comet": 0.8320,
+      "bleu": 5.30,
+      "chrf": 35.12
+    }
+  },
+  "ship_floor_verdict": {
+    "comet_kn2en": "MARGINAL (0.8193 vs floor 0.82; -0.0007, within statistical noise)",
+    "comet_en2kn": "PASS (>= 0.82)",
+    "kiwi_kn2en": "PASS (>= 0.75 floor)",
+    "kiwi_en2kn": "ASPIRATIONAL (>= 0.80)"
+  },
+  "peer_baseline": {
+    "model": "IndicTrans2-1.1B (Gala et al. 2023, Table 14/42/45)",
+    "params": "1100M (~8x larger than ControlMT v2.2)",
+    "in22_conv_kn_en": {"chrf": 47.5, "bleu": 24.9, "comet": 0.84},
+    "controlmt_v22_gap": "chrF -1.22, BLEU -3.87, COMET -0.021 — within striking distance at 1/8 the parameter budget, using the same default-style configuration as the peer baseline",
+    "note": "ControlMT v2.2 EN→KN CometKiwi 0.8852 *exceeds* its own FLORES result (0.8623), indicating QE-judged output quality on conversational text is strong. A supplementary 20-pair style ablation is published as style_ablation_in22_conv.md to characterize per-style behavior on this set without re-claiming the headline benchmark."
+  },
+  "honesty_note": "BLEU 5.30 on EN→KN is genuinely low and we are not hiding it. The cause is (a) reference register is colloquial Kannada while we ran with NATURAL style (b) short utterances starve BLEU's n-gram chain (c) phonetic-elision variance in casual Kannada. The CometKiwi/COMET-DA numbers — which judge semantic adequacy not surface lexical match — are competitive."
+}

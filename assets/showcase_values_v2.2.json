@@ -1,0 +1,45 @@
+{
+  "_comment": "ControlMT v2.2 banner values. Edit then re-run scripts/render_showcase.py. v2.1 was never publicly released — present v2.2 as the first release.",
+
+  "RIBBON_TEXT": "PRE-RELEASE",
+  "VERSION": "v2.2",
+  "PARAMS": "139M params",
+  "LICENSE": "Apache 2.0",
+  "RELEASE_DATE": "2026-06-23",
+
+  "COMETKIWI_KN_EN": "0.8412",
+  "COMETKIWI_EN_KN": "0.8623",
+  "COMET_KN_EN":     "0.8409",
+  "COMET_EN_KN":     "0.8405",
+  "BLEU_KN_EN":      "26.81",
+  "BLEU_EN_KN":      "17.98",
+  "CHRF_KN_EN":      "55.39",
+  "CHRF_EN_KN":      "55.56",
+
+  "BADGE_1": "vs NLLB-600M: ~3× faster",
+  "BADGE_2": "vs IT2-1B: ~5× faster",
+  "BADGE_3": "vs NLLB-3.3B: ~12× faster",
+
+  "SPEC_1": "Single-pair · 100% of params dedicated to KN ↔ EN",
+  "SPEC_2": "4-style control · STRICT / NATURAL / FORMAL / CASUAL",
+  "SPEC_3": "Anti-LM contrastive decoding (α=0.5) kills repetition",
+  "SPEC_4": "Decoder-hygiene gate — no mixed-code emission",
+  "SPEC_5": "Form-preservation for numerals, dates, currency",
+  "SPEC_6": "Code-mix native: \"Modi ಬೆಂಗಳೂರಿಗೆ ಭೇಟಿ\" handled",
+
+  "STAND_1": "vs IndicTrans2-200M-dist  ·  30% smaller  +  style control  +  code-mix",
+  "STAND_2": "vs NLLB-distilled-600M  ·  77% smaller  ·  matches FLORES KN↔EN",
+  "STAND_3": "vs NLLB-3.3B  ·  96% smaller  ·  ~12× faster per token",
+  "STAND_4": "vs Sarvam-Translate (4B)  ·  Apache 2.0  ·  on-device deployable",
+  "STAND_5": "vs Google Translate API  ·  self-hosted  ·  no data leaves device",
+
+  "NEXT_VERSION": "v2.3",
+  "NEXT_DATE": "~September 2026",
+  "NEXT_1": "Hindi support (HI ↔ EN)",
+  "NEXT_2": "Standardized BPE tokenizer",
+  "NEXT_3": "Iterative back-translation",
+  "NEXT_4": "Idiom-pair augmentation",
+
+  "URL_1": "huggingface.co/anandkaman/controlmt-v2.2",
+  "URL_2": "github.com/anandkaman/ControlMT"
+}
