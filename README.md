@@ -8,8 +8,14 @@
 
 > **🚧 v2.3 is in active development.** Earlier v2.2 weights have been pulled from
 > public HuggingFace pending v2.3 release. v2.3 refocuses the model's 139M-parameter
-> capacity on single-register translation quality. Expected ship: late June 2026.
+> capacity on translation quality (single-register). Expected ship: late June 2026.
 > If you're looking for the model files, please get in touch directly.
+>
+> **On style control**: the architecture reserves dedicated tokens for
+> register/style (STRICT / NATURAL / FORMAL / CASUAL). v2.3 ships without
+> advertising these — they will become a properly-trained, separately-released
+> feature in an upcoming version once the label distribution is rebalanced and
+> contrastive separation training is added.
 
 ---
 
@@ -72,7 +78,7 @@ this is what that trade-off looks like.
 ## Roadmap
 
 - **v2.3** — single-register specialized KN↔EN model (in active training)
-- **v2.4** — Hindi support (`[HI2EN]` / `[EN2HI]`), iterative back-translation, idiom-pair augmentation, standardized BPE tokenizer
+- **v2.4** — properly-trained style control (rebalanced labels + contrastive separation loss); Hindi support (`[HI2EN]` / `[EN2HI]`); iterative back-translation; idiom-pair augmentation; standardized BPE tokenizer
 - **v3.0** (TBD) — Copy-mechanism / pointer-generator for OOV-proof transliteration
 
 ---
