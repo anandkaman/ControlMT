@@ -98,7 +98,6 @@ class ControlMTForSeq2SeqLM(PreTrainedModel):
         text: str,
         tokenizer,
         direction: str = "kn2en",
-        style: str = "natural",
         num_beams: int = 6,
         length_penalty: float = 1.2,
         no_repeat_ngram_size: int = 3,
@@ -111,7 +110,6 @@ class ControlMTForSeq2SeqLM(PreTrainedModel):
             text: source string
             tokenizer: a ControlMTTokenizer (or compatible — needs .encode/.decode)
             direction: "kn2en" / "en2kn" / "rkn2kn"
-            style: "strict" / "natural" / "formal" / "casual" / "json" / "text"
             num_beams: beam search size (default 6, matches reported benchmark numbers)
             length_penalty: 1.2 (NLLB/IndicTrans2 default)
             no_repeat_ngram_size: 3 (prevents `_ _ _` class of repetitions)
@@ -120,7 +118,8 @@ class ControlMTForSeq2SeqLM(PreTrainedModel):
         """
         device = next(self.parameters()).device
         dir_id = self.config.direction_tokens[direction]
-        ctrl_id = self.config.control_tokens[style]
+        # v2.3 ships single-register; control token is fixed to the default NATURAL.
+        ctrl_id = self.config.default_control_token_id
 
         src_tokens = tokenizer.encode(text)
         src_ids = [BOS_ID, dir_id, ctrl_id] + src_tokens + [EOS_ID]

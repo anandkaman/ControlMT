@@ -3,7 +3,7 @@
   "architectures": [
     "ControlMTForSeq2SeqLM"
   ],
-  "model_name": "ControlMT-v2.2",
+  "model_name": "ControlMT-v2.3",
   "trained_by": "Anand Kaman",
   "release_date": "2026-06-23",
 
@@ -32,14 +32,6 @@
     "hi2en": 14,
     "en2hi": 15
   },
-  "control_tokens": {
-    "strict": 6,
-    "natural": 7,
-    "formal": 8,
-    "casual": 9,
-    "json": 10,
-    "text": 11
-  },
   "default_control_token_id": 7,
 
   "decoding_presets": {
@@ -50,7 +42,7 @@
       "no_repeat_ngram_size": 3,
       "anti_lm_alpha": 0.5,
       "max_length": 256,
-      "description": "Production setting — matches reported FLORES / IN22 benchmark numbers"
+      "description": "Production setting — matches reported FLORES benchmark numbers"
     },
     "fast": {
       "method": "beam_search",
@@ -83,15 +75,14 @@
     "precision": "bf16 mixed",
     "optimizer": "AdamW",
     "weight_decay": 0.01,
-    "lr_schedule": "warmup + per-epoch step decay",
-    "warmup_steps": 4000,
+    "lr_schedule": "warm-start fine-tune from v2.2 with low LR (1.5e-5 → 1e-5)",
+    "warmup_steps": 500,
     "label_smoothing": 0.1,
     "grad_clip_norm": 1.0,
     "effective_batch_size": 96,
     "ema_decay": 0.999,
     "ema_start_step": 1000,
-    "swa": true,
-    "swa_inputs": ["best.pt", "step_1400000.pt", "step_1425000.pt", "step_1435000.pt"]
+    "final_checkpoint": "final_v2.3.pt"
   },
 
   "tokenizer_class": "ControlMTTokenizer",

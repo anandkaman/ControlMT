@@ -93,11 +93,14 @@ class ControlMTTokenizer(PreTrainedTokenizer):
         ids = [i for i in ids if i not in special]
         return self.sp_model.decode(ids)
 
-    def translate_text(self, text: str, direction: str = "kn2en",
-                       style: str = "natural") -> List[int]:
-        """Build the full HF-style input_ids prefix:  [BOS] [DIRECTION] [STYLE] tokens [EOS]"""
+    def translate_text(self, text: str, direction: str = "kn2en") -> List[int]:
+        """Build the full HF-style input_ids prefix:  [BOS] [DIRECTION] [CONTROL] tokens [EOS]
+
+        v2.3 ships single-register; the control token slot is fixed to the architectural
+        default (NATURAL = id 7). Future versions may surface a register selector.
+        """
         dir_id = self.direction_tokens[direction]
-        ctrl_id = self.control_tokens[style]
+        ctrl_id = self.control_tokens.get("natural", 7)
         body = self.encode(text)
         return [1, dir_id, ctrl_id] + body + [2]  # 1=BOS, 2=EOS
 

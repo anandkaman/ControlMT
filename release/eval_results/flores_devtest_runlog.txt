@@ -1,189 +1,0 @@
-
-======================================================================
-STAGE 1: ControlMT translation
-======================================================================
-  ckpt: /root/server_ai/ControlMT/checkpoints_v22/best_swa.pt
-  beam=6, anti_lm_alpha=0.5
-  loaded model | val=2.191599168777466
-  test pairs: 1012
-  generating 2024 hypotheses (both directions)...
-    [   50/1012]  0.09 pairs/s  ETA 186.2min
-    [  100/1012]  0.10 pairs/s  ETA 159.0min
-    [  150/1012]  0.10 pairs/s  ETA 137.8min
-    [  200/1012]  0.11 pairs/s  ETA 125.5min
-    [  250/1012]  0.11 pairs/s  ETA 120.1min
-    [  300/1012]  0.11 pairs/s  ETA 108.6min
-    [  350/1012]  0.11 pairs/s  ETA 99.9min
-    [  400/1012]  0.11 pairs/s  ETA 95.2min
-    [  450/1012]  0.11 pairs/s  ETA 88.1min
-    [  500/1012]  0.11 pairs/s  ETA 80.8min
-    [  550/1012]  0.10 pairs/s  ETA 74.0min
-    [  600/1012]  0.10 pairs/s  ETA 67.0min
-    [  650/1012]  0.10 pairs/s  ETA 59.5min
-    [  700/1012]  0.10 pairs/s  ETA 51.4min
-    [  750/1012]  0.10 pairs/s  ETA 43.7min
-    [  800/1012]  0.10 pairs/s  ETA 35.2min
-    [  850/1012]  0.10 pairs/s  ETA 27.0min
-    [  900/1012]  0.10 pairs/s  ETA 18.8min
-    [  950/1012]  0.10 pairs/s  ETA 10.4min
-    [ 1000/1012]  0.10 pairs/s  ETA 2.0min
-  done in 171.1 min  (0.10 pairs/s)
-  saved → /root/server_ai/ControlMT/logs/release_flores_devtest_hyps.jsonl
-  GPU freed
-
-======================================================================
-QUALITY SAMPLE — flores_devtest (10 random)
-======================================================================
-
-[1]
-  KN_src:  ವಿಷಯ ಸಿದ್ದಾಂತಗಳು ಮನುಷ್ಯನಿಗೆ ಯಾವ ವಿಷಯ ಇಷ್ಟವಾಗುತ್ತದೆ ಅಥವಾ ಕೆಣಕುತ್ತದೆ ಎಂಬುದನ್ನು ಕಂಡುಹಿಡಿಯಲು ಪ್ರಯತ್ನಿಸುತ್ತವೆ.
-  KN→EN:   Content theories try to figure out what a man likes or provokes.
-  EN_ref:  Content theories are centered on finding what makes people tick or appeals to them.
-  ---
-  EN_src:  Content theories are centered on finding what makes people tick or appeals to them.
-  EN→KN:   ಜನರು ತಮಗೆ ಏನು ಟಿಕ್ ಮಾಡುತ್ತಾರೆ ಅಥವಾ ಮನವಿ ಮಾಡುತ್ತಾರೆ ಎಂಬುದನ್ನು ಕಂಡುಹಿಡಿಯುವುದರ ಮೇಲೆ ವಿಷಯ ಸಿದ್ಧಾಂತಗಳು ಕೇಂದ್ರೀಕೃತವಾಗಿವೆ.
-  KN_ref:  ವಿಷಯ ಸಿದ್ದಾಂತಗಳು ಮನುಷ್ಯನಿಗೆ ಯಾವ ವಿಷಯ ಇಷ್ಟವಾಗುತ್ತದೆ ಅಥವಾ ಕೆಣಕುತ್ತದೆ ಎಂಬುದನ್ನು ಕಂಡುಹಿಡಿಯಲು ಪ್ರಯತ್ನಿಸುತ್ತವೆ.
-
-[2]
-  KN_src:  ಸಾಂಕ್ರಾಮಿಕ ರೋಗವು ತೀವ್ರವಾಗಿ ಪೀಡಿತ ಪ್ರದೇಶಗಳಲ್ಲಿ ಹಂದಿ ಹಿಡಿಯುವವರನ್ನು ನಿಯೋಜಿಸುವುದು, ಸಾವಿರಾರು ಸೊಳ್ಳೆ ಪರದೆಗಳನ್ನು ವಿತರಿಸುವುದು ಮತ್ತು ಕೀಟನಾಶ
-  KN→EN:   The pandemic prompted the Government of India to take some steps, such as deploying pigs in severe affected areas, distributing th
-  EN_ref:  The outbreak has prompted the Indian government to undertake such measures as deployment of pig catchers in seriously affected are
-  ---
-  EN_src:  The outbreak has prompted the Indian government to undertake such measures as deployment of pig catchers in seriously affected are
-  EN→KN:   ತೀವ್ರ ಪೀಡಿತ ಪ್ರದೇಶಗಳಲ್ಲಿ ಹಂದಿ ಹಿಡಿಯುವವರ ನಿಯೋಜನೆ, ಸಾವಿರಾರು ಸೊಳ್ಳೆ ಪರದೆಗಳನ್ನು ವಿತರಿಸುವುದು ಮತ್ತು ಕೀಟನಾಶಕಗಳನ್ನು ಸಿಂಪಡಿಸುವಂತಹ ಕ್ರಮಗಳನ್ನ
-  KN_ref:  ಸಾಂಕ್ರಾಮಿಕ ರೋಗವು ತೀವ್ರವಾಗಿ ಪೀಡಿತ ಪ್ರದೇಶಗಳಲ್ಲಿ ಹಂದಿ ಹಿಡಿಯುವವರನ್ನು ನಿಯೋಜಿಸುವುದು, ಸಾವಿರಾರು ಸೊಳ್ಳೆ ಪರದೆಗಳನ್ನು ವಿತರಿಸುವುದು ಮತ್ತು ಕೀಟನಾಶ
-
-[3]
-  KN_src:  ಟರ್ಕಿಯ ಅಧ್ಯಕ್ಷರಾದ ರಿಸೆಪ್ ತಯ್ಯಿಪ್ ಎರ್ಡೋಕನ್ ಅವರ ಜೊತೆಗೆ ಟ್ರಂಪ್ ಅವರು ಫೋನ್ ಸಂಭಾಷಣೆ ನಡೆಸಿದ ನಂತರ ಈ ಘೋಷಣೆ ಮಾಡಲಾಗಿದೆ.
-  KN→EN:   The announcement was made after Trump held a phone conversation with Turkish President Ricep Tayyip Erdogan.
-  EN_ref:  The announcement was made after Trump had a phone conversation with Turkish President Recep Tayyip Erdoğan.
-  ---
-  EN_src:  The announcement was made after Trump had a phone conversation with Turkish President Recep Tayyip Erdoğan.
-  EN→KN:   ಟರ್ಕಿ ಅಧ್ಯಕ್ಷ ರೆಸೆಪ್ ತಯ್ಯಪ್ ಎರ್ಡೊಕನ್ ಅವರೊಂದಿಗೆ ಟ್ರಂಪ್ ದೂರವಾಣಿ ಸಂಭಾಷಣೆ ನಡೆಸಿದ ಬಳಿಕ ಈ ಘೋಷಣೆ ಮಾಡಲಾಗಿದೆ.
-  KN_ref:  ಟರ್ಕಿಯ ಅಧ್ಯಕ್ಷರಾದ ರಿಸೆಪ್ ತಯ್ಯಿಪ್ ಎರ್ಡೋಕನ್ ಅವರ ಜೊತೆಗೆ ಟ್ರಂಪ್ ಅವರು ಫೋನ್ ಸಂಭಾಷಣೆ ನಡೆಸಿದ ನಂತರ ಈ ಘೋಷಣೆ ಮಾಡಲಾಗಿದೆ.
-
-[4]
-  KN_src:  ಮಾಂಟೆವಿಡಿಯೊ ಸಮಭಾಜಕದ ದಕ್ಷಿಣದಲ್ಲಿರುವುದರಿಂದ, ಹೀಗಾಗಿ ಇಲ್ಲಿ ಬೇಸಿಗೆ ಕಾಲವಿದ್ದರೆ ಉತ್ತರ ಗೋಳಾರ್ಧದಲ್ಲಿ ಚಳಿಗಾಲವಿರುತ್ತದೆ ಹಾಗೂ ಅಲ್ಲಿ ಚಳಿ ಇದ್ದರೆ 
-  KN→EN:   Since Montevideo is in the south of the equator, the summer season here is winter in the northern hemisphere and there is cold, th
-  EN_ref:  Since Montevideo is south of the Equator, it is summer there when it's winter in the Northern Hemisphere and vice versa.
-  ---
-  EN_src:  Since Montevideo is south of the Equator, it is summer there when it's winter in the Northern Hemisphere and vice versa.
-  EN→KN:   ಮೊಂಟೆಡಿಯೊವು ಈಕ್ವರೇಟರ್ ನ ದಕ್ಷಿಣದಲ್ಲಿರುವುದರಿಂದ, ಉತ್ತರ ಗೋಳಾರ್ಧದಲ್ಲಿ ಚಳಿಗಾಲವಾದಾಗ ಮತ್ತು ಪ್ರತಿಯಾಗಿ ಬೇಸಿಗೆಯು ಇರುತ್ತದೆ.
-  KN_ref:  ಮಾಂಟೆವಿಡಿಯೊ ಸಮಭಾಜಕದ ದಕ್ಷಿಣದಲ್ಲಿರುವುದರಿಂದ, ಹೀಗಾಗಿ ಇಲ್ಲಿ ಬೇಸಿಗೆ ಕಾಲವಿದ್ದರೆ ಉತ್ತರ ಗೋಳಾರ್ಧದಲ್ಲಿ ಚಳಿಗಾಲವಿರುತ್ತದೆ ಹಾಗೂ ಅಲ್ಲಿ ಚಳಿ ಇದ್ದರೆ 
-
-[5]
-  KN_src:  ಮನೆಯೊಳಗೆ 3 ಜನರು  ಇದ್ದರೂ, ಕಾರ್  ಡಿಕ್ಕಿ ಹೊಡೆದಾಗ, ಯಾರಿಗೂ ಗಾಯವಾಗಲಿಲ್ಲ.
-  KN→EN:   There were 3 people inside the house, but when the car collided, no one was injured.
-  EN_ref:  Although three people were inside the house when the car impacted it, none of them were hurt.
-  ---
-  EN_src:  Although three people were inside the house when the car impacted it, none of them were hurt.
-  EN→KN:   ಕಾರಿನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರಿದಾಗ ಮೂವರು ಮನೆಯೊಳಗೆ ಇದ್ದರೂ, ಅವರಲ್ಲಿ ಯಾರಿಗೂ ಗಾಯಗಳಾಗಿಲ್ಲ.
-  KN_ref:  ಮನೆಯೊಳಗೆ 3 ಜನರು  ಇದ್ದರೂ, ಕಾರ್  ಡಿಕ್ಕಿ ಹೊಡೆದಾಗ, ಯಾರಿಗೂ ಗಾಯವಾಗಲಿಲ್ಲ.
-
-[6]
-  KN_src:  ಹೊಕುರಿಕು ಎಲೆಕ್ಟ್ರಿಕ್ ಪವರ್ ಕಂಪನಿಯು ಭೂಕಂಪದಿಂದ ಯಾವುದೇ ಪರಿಣಾಮಗಳಿಲ್ಲ ಮತ್ತು ಅದರ ಶಿಕಾ ಪರಮಾಣು ವಿದ್ಯುತ್ ಸ್ಥಾವರದಲ್ಲಿನ ಸಂಖ್ಯೆ 1 ಮತ್ತು 2 ರಿಯಾಕ
-  KN→EN:   Hokuku Electric Power Company reported that there were no effects from the earthquake and the number 1 and 2 reactors in its Shika
-  EN_ref:  Hokuriku Electric Power Co. reported no effects from the earthquake and that the Number 1 and 2 reactors at its Shika nuclear powe
-  ---
-  EN_src:  Hokuriku Electric Power Co. reported no effects from the earthquake and that the Number 1 and 2 reactors at its Shika nuclear powe
-  EN→KN:   ಹೊಸಕುಕು ಎಲೆಕ್ಟ್ರಿಕ್ ಪವರ್ ಕಂ ಭೂಕಂಪದಿಂದ ಯಾವುದೇ ಪರಿಣಾಮ ಬೀರುವುದಿಲ್ಲ ಮತ್ತು ಅದರ ಶಿಕಾ ಪರಮಾಣು ವಿದ್ಯುತ್ ಸ್ಥಾವರದಲ್ಲಿರುವ ನಂಬರ್ 1 ಮತ್ತು 2 ರಿಯಾ
-  KN_ref:  ಹೊಕುರಿಕು ಎಲೆಕ್ಟ್ರಿಕ್ ಪವರ್ ಕಂಪನಿಯು ಭೂಕಂಪದಿಂದ ಯಾವುದೇ ಪರಿಣಾಮಗಳಿಲ್ಲ ಮತ್ತು ಅದರ ಶಿಕಾ ಪರಮಾಣು ವಿದ್ಯುತ್ ಸ್ಥಾವರದಲ್ಲಿನ ಸಂಖ್ಯೆ 1 ಮತ್ತು 2 ರಿಯಾಕ
-
-[7]
-  KN_src:  ಎರಡನೇ ಸೆಟ್‌ನಲ್ಲಿ ಡೆಲ್ ಪೊಟ್ರೊ ಆರಂಭಿಕ ಲಾಭವನ್ನು ಪಡೆದಿದ್ದರು, ಆದರೆ 6-6 ತಲುಪಿದ ನಂತರ ಟೈ ವಿರಾಮ ಬೇಕಾಯಿತು.
-  KN→EN:   Del Potro took early advantage of the second set, but tie took a break after reaching 6-6.
-  EN_ref:  Del Potro had the early advantage in the second set, but this too required a tie break after reaching 6-6.
-  ---
-  EN_src:  Del Potro had the early advantage in the second set, but this too required a tie break after reaching 6-6.
-  EN→KN:   ಎರಡನೇ ಸೆಟ್ ನಲ್ಲಿ ಡೆಲ್ ಪೊಟ್ರೊ ಆರಂಭಿಕ ಪ್ರಯೋಜನವನ್ನು ಹೊಂದಿದ್ದರು, ಆದರೆ ಇದಕ್ಕೆ ೬-೬ ತಲುಪಿದ ನಂತರ ಟೈ ಬ್ರೇಕ್ ಅಗತ್ಯವಿತ್ತು.
-  KN_ref:  ಎರಡನೇ ಸೆಟ್‌ನಲ್ಲಿ ಡೆಲ್ ಪೊಟ್ರೊ ಆರಂಭಿಕ ಲಾಭವನ್ನು ಪಡೆದಿದ್ದರು, ಆದರೆ 6-6 ತಲುಪಿದ ನಂತರ ಟೈ ವಿರಾಮ ಬೇಕಾಯಿತು.
-
-[8]
-  KN_src:  ಯಾವುದೇ ಸುನಾಮಿ ಬೆದರಿಕೆ ಇಲ್ಲದಿದ್ದರೂ, ನಿವಾಸಿಗಳಲ್ಲಿ ಭಯದ ವಾತಾವರಣ ಆವರಿಸಿತು ಮತ್ತು ತಮ್ಮ ವ್ಯವಹಾರ, ಮನೆ ಮಠಗಳನ್ನು ಬಿಡಲು ಪ್ರಾರಂಭಿಸಿದರು.
-  KN→EN:   Although there was no tsunami threat, the residents were gripped by an atmosphere of fear and began to leave their business, home 
-  EN_ref:  Despite there being no tsunami threat, residents started to panic and began to leave their businesses and homes.
-  ---
-  EN_src:  Despite there being no tsunami threat, residents started to panic and began to leave their businesses and homes.
-  EN→KN:   ಸುನಾಮಿ ಬೆದರಿಕೆ ಇಲ್ಲದಿದ್ದರೂ, ನಿವಾಸಿಗಳು ಗಾಬರಿಯಾಗಲು ಪ್ರಾರಂಭಿಸಿದರು ಮತ್ತು ತಮ್ಮ ವ್ಯವಹಾರಗಳು ಮತ್ತು ಮನೆಗಳನ್ನು ಬಿಡಲು ಪ್ರಾರಂಭಿಸಿದರು.
-  KN_ref:  ಯಾವುದೇ ಸುನಾಮಿ ಬೆದರಿಕೆ ಇಲ್ಲದಿದ್ದರೂ, ನಿವಾಸಿಗಳಲ್ಲಿ ಭಯದ ವಾತಾವರಣ ಆವರಿಸಿತು ಮತ್ತು ತಮ್ಮ ವ್ಯವಹಾರ, ಮನೆ ಮಠಗಳನ್ನು ಬಿಡಲು ಪ್ರಾರಂಭಿಸಿದರು.
-
-[9]
-  KN_src:  ಫಾಕ್‌ಲ್ಯಾಂಡ್ಸ್‌ನ ಅಧಿಕೃತ ಕರೆನ್ಸಿಯು ಫಾಕ್‌ಲ್ಯಾಂಡ್ ಪೌಂಡ್ (ಎಫ್‌ಕೆಪಿ) ಆಗಿದ್ದು, 1 ಬ್ರಿಟಿಷ್ ಪೌಂಡ್ (ಜಿಬಿಪಿ) ಗೆ ಸಮಾನವಾಗಿ ಇದರ ಮೌಲ್ಯವನ್ನು ನಿಗದ
-  KN→EN:   The official currency of Faclands is the FKP, equal to 1 British pound (GBP).
-  EN_ref:  The official Falklands currency is the Falkland pound (FKP) whose value is set equivalent to that of one British pound (GBP).
-  ---
-  EN_src:  The official Falklands currency is the Falkland pound (FKP) whose value is set equivalent to that of one British pound (GBP).
-  EN→KN:   ಅಧಿಕೃತ ಕರೆನ್ಸಿಯು ಒಂದು ಬ್ರಿಟಿಷ್ ಪೌಂಡ್ (GBP) ಗೆ ಸಮನಾಗಿರುವ ಎಫ್ಕೆಪಿ (FKP) ಆಗಿದೆ.
-  KN_ref:  ಫಾಕ್‌ಲ್ಯಾಂಡ್ಸ್‌ನ ಅಧಿಕೃತ ಕರೆನ್ಸಿಯು ಫಾಕ್‌ಲ್ಯಾಂಡ್ ಪೌಂಡ್ (ಎಫ್‌ಕೆಪಿ) ಆಗಿದ್ದು, 1 ಬ್ರಿಟಿಷ್ ಪೌಂಡ್ (ಜಿಬಿಪಿ) ಗೆ ಸಮಾನವಾಗಿ ಇದರ ಮೌಲ್ಯವನ್ನು ನಿಗದ
-
-[10]
-  KN_src:  ಎಷ್ಟು ದೊಡ್ಡದಾಗಿ ಹೊಡೆದಿತ್ತು ಮತ್ತು ಭೂಮಿಯ ಮೇಲೆ ಅದು ಎಷ್ಟು ಬಾಧಿಸುತ್ತದೆ ಎಂದು ಅವರು ಈಗಲೂ ಕಂಡುಹಿಡಿಯಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದಾರೆ.
-  KN→EN:   They are still trying to figure out how big it was and how much it would affect the earth.
-  EN_ref:  They are still trying to determine just how large the crash was and how the Earth will be affected.
-  ---
-  EN_src:  They are still trying to determine just how large the crash was and how the Earth will be affected.
-  EN→KN:   ಕ್ರ್ಯಾಶ್ ಎಷ್ಟು ದೊಡ್ಡದಾಗಿದೆ ಮತ್ತು ಭೂಮಿಯ ಮೇಲೆ ಹೇಗೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸಲು ಅವರು ಇನ್ನೂ ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದಾರೆ.
-  KN_ref:  ಎಷ್ಟು ದೊಡ್ಡದಾಗಿ ಹೊಡೆದಿತ್ತು ಮತ್ತು ಭೂಮಿಯ ಮೇಲೆ ಅದು ಎಷ್ಟು ಬಾಧಿಸುತ್ತದೆ ಎಂದು ಅವರು ಈಗಲೂ ಕಂಡುಹಿಡಿಯಲು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದಾರೆ.
-
-======================================================================
-STAGE 2: CometKiwi (reference-free)
-======================================================================
-Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 126334.46it/s]
-Lightning automatically upgraded your loaded checkpoint from v1.8.2 to v2.6.5. To apply the upgrade to your files permanently, run `python -m pytorch_lightning.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--Unbabel--wmt22-cometkiwi-da/snapshots/1ad785194e391eebc6c53e2d0776cada8f83179a/checkpoints/model.ckpt`
-Encoder model frozen.
-/root/server_ai/surya_env/lib/python3.12/site-packages/pytorch_lightning/core/saving.py:197: Found keys that are not in the model state dict but in the checkpoint: ['encoder.model.embeddings.position_ids']
-  scoring kn→en (1012)...
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
-You are using a CUDA device ('NVIDIA GeForce RTX 5060 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-/root/server_ai/surya_env/lib/python3.12/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: 0it [00:00, ?it/s]Predicting: 0it [00:00, ?it/s]Predicting DataLoader 0:   0%|          | 0/64 [00:00<?, ?it/s]Predicting DataLoader 0:   2%|▏         | 1/64 [00:00<00:05, 11.74it/s]Predicting DataLoader 0:   3%|▎         | 2/64 [00:00<00:02, 21.47it/s]Predicting DataLoader 0:   5%|▍         | 3/64 [00:00<00:02, 21.19it/s]Predicting DataLoader 0:   6%|▋         | 4/64 [00:00<00:02, 20.92it/s]Predicting DataLoader 0:   8%|▊         | 5/64 [00:00<00:02, 20.30it/s]Predicting DataLoader 0:   9%|▉         | 6/64 [00:00<00:02, 19.81it/s]Predicting DataLoader 0:  11%|█         | 7/64 [00:00<00:02, 19.44it/s]Predicting DataLoader 0:  12%|█▎        | 8/64 [00:00<00:02, 19.05it/s]Predicting DataLoader 0:  14%|█▍        | 9/64 [00:00<00:02, 18.43it/s]Predicting DataLoader 0:  16%|█▌        | 10/64 [00:00<00:02, 18.31it/s]Predicting DataLoader 0:  17%|█▋        | 11/64 [00:00<00:02, 17.85it/s]Predicting DataLoader 0:  19%|█▉        | 12/64 [00:00<00:02, 17.77it/s]Predicting DataLoader 0:  20%|██        | 13/64 [00:00<00:02, 17.34it/s]Predicting DataLoader 0:  22%|██▏       | 14/64 [00:00<00:02, 16.98it/s]Predicting DataLoader 0:  23%|██▎       | 15/64 [00:00<00:02, 16.64it/s]Predicting DataLoader 0:  25%|██▌       | 16/64 [00:00<00:02, 16.34it/s]Predicting DataLoader 0:  27%|██▋       | 17/64 [00:01<00:02, 16.10it/s]Predicting DataLoader 0:  28%|██▊       | 18/64 [00:01<00:02, 15.82it/s]Predicting DataLoader 0:  30%|██▉       | 19/64 [00:01<00:02, 15.65it/s]Predicting DataLoader 0:  31%|███▏      | 20/64 [00:01<00:02, 15.47it/s]Predicting DataLoader 0:  33%|███▎      | 21/64 [00:01<00:02, 15.34it/s]Predicting DataLoader 0:  34%|███▍      | 22/64 [00:01<00:02, 15.19it/s]Predicting DataLoader 0:  36%|███▌      | 23/64 [00:01<00:02, 15.00it/s]Predicting DataLoader 0:  38%|███▊      | 24/64 [00:01<00:02, 14.86it/s]Predicting DataLoader 0:  39%|███▉      | 25/64 [00:01<00:02, 14.75it/s]Predicting DataLoader 0:  41%|████      | 26/64 [00:01<00:02, 14.63it/s]Predicting DataLoader 0:  42%|████▏     | 27/64 [00:01<00:02, 14.52it/s]Predicting DataLoader 0:  44%|████▍     | 28/64 [00:01<00:02, 14.38it/s]Predicting DataLoader 0:  45%|████▌     | 29/64 [00:02<00:02, 14.27it/s]Predicting DataLoader 0:  47%|████▋     | 30/64 [00:02<00:02, 14.19it/s]Predicting DataLoader 0:  48%|████▊     | 31/64 [00:02<00:02, 14.06it/s]Predicting DataLoader 0:  50%|█████     | 32/64 [00:02<00:02, 13.96it/s]Predicting DataLoader 0:  52%|█████▏    | 33/64 [00:02<00:02, 13.84it/s]Predicting DataLoader 0:  53%|█████▎    | 34/64 [00:02<00:02, 13.72it/s]Predicting DataLoader 0:  55%|█████▍    | 35/64 [00:02<00:02, 13.62it/s]Predicting DataLoader 0:  56%|█████▋    | 36/64 [00:02<00:02, 13.55it/s]Predicting DataLoader 0:  58%|█████▊    | 37/64 [00:02<00:02, 13.45it/s]Predicting DataLoader 0:  59%|█████▉    | 38/64 [00:02<00:01, 13.40it/s]Predicting DataLoader 0:  61%|██████    | 39/64 [00:02<00:01, 13.29it/s]Predicting DataLoader 0:  62%|██████▎   | 40/64 [00:03<00:01, 13.20it/s]Predicting DataLoader 0:  64%|██████▍   | 41/64 [00:03<00:01, 13.15it/s]Predicting DataLoader 0:  66%|██████▌   | 42/64 [00:03<00:01, 13.03it/s]Predicting DataLoader 0:  67%|██████▋   | 43/64 [00:03<00:01, 12.93it/s]Predicting DataLoader 0:  69%|██████▉   | 44/64 [00:03<00:01, 12.82it/s]Predicting DataLoader 0:  70%|███████   | 45/64 [00:03<00:01, 12.73it/s]Predicting DataLoader 0:  72%|███████▏  | 46/64 [00:03<00:01, 12.65it/s]Predicting DataLoader 0:  73%|███████▎  | 47/64 [00:03<00:01, 12.57it/s]Predicting DataLoader 0:  75%|███████▌  | 48/64 [00:03<00:01, 12.47it/s]Predicting DataLoader 0:  77%|███████▋  | 49/64 [00:03<00:01, 12.39it/s]Predicting DataLoader 0:  78%|███████▊  | 50/64 [00:04<00:01, 12.31it/s]Predicting DataLoader 0:  80%|███████▉  | 51/64 [00:04<00:01, 12.23it/s]Predicting DataLoader 0:  81%|████████▏ | 52/64 [00:04<00:00, 12.16it/s]Predicting DataLoader 0:  83%|████████▎ | 53/64 [00:04<00:00, 12.07it/s]Predicting DataLoader 0:  84%|████████▍ | 54/64 [00:04<00:00, 11.99it/s]Predicting DataLoader 0:  86%|████████▌ | 55/64 [00:04<00:00, 11.89it/s]Predicting DataLoader 0:  88%|████████▊ | 56/64 [00:04<00:00, 11.82it/s]Predicting DataLoader 0:  89%|████████▉ | 57/64 [00:04<00:00, 11.73it/s]Predicting DataLoader 0:  91%|█████████ | 58/64 [00:04<00:00, 11.66it/s]Predicting DataLoader 0:  92%|█████████▏| 59/64 [00:05<00:00, 11.56it/s]Predicting DataLoader 0:  94%|█████████▍| 60/64 [00:05<00:00, 11.48it/s]Predicting DataLoader 0:  95%|█████████▌| 61/64 [00:05<00:00, 11.39it/s]Predicting DataLoader 0:  97%|█████████▋| 62/64 [00:05<00:00, 11.28it/s]Predicting DataLoader 0:  98%|█████████▊| 63/64 [00:05<00:00, 11.15it/s]Predicting DataLoader 0: 100%|██████████| 64/64 [00:05<00:00, 10.93it/s]Predicting DataLoader 0: 100%|██████████| 64/64 [00:05<00:00, 10.84it/s]
-  scoring en→kn (1012)...
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-/root/server_ai/surya_env/lib/python3.12/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: 0it [00:00, ?it/s]Predicting: 0it [00:00, ?it/s]Predicting DataLoader 0:   0%|          | 0/64 [00:00<?, ?it/s]Predicting DataLoader 0:   2%|▏         | 1/64 [00:00<00:00, 109.98it/s]Predicting DataLoader 0:   3%|▎         | 2/64 [00:00<00:01, 37.03it/s] Predicting DataLoader 0:   5%|▍         | 3/64 [00:00<00:01, 30.90it/s]Predicting DataLoader 0:   6%|▋         | 4/64 [00:00<00:02, 27.02it/s]Predicting DataLoader 0:   8%|▊         | 5/64 [00:00<00:02, 24.46it/s]Predicting DataLoader 0:   9%|▉         | 6/64 [00:00<00:02, 23.26it/s]Predicting DataLoader 0:  11%|█         | 7/64 [00:00<00:02, 20.90it/s]Predicting DataLoader 0:  12%|█▎        | 8/64 [00:00<00:02, 20.38it/s]Predicting DataLoader 0:  14%|█▍        | 9/64 [00:00<00:02, 19.43it/s]Predicting DataLoader 0:  16%|█▌        | 10/64 [00:00<00:02, 18.72it/s]Predicting DataLoader 0:  17%|█▋        | 11/64 [00:00<00:02, 18.21it/s]Predicting DataLoader 0:  19%|█▉        | 12/64 [00:00<00:02, 17.80it/s]Predicting DataLoader 0:  20%|██        | 13/64 [00:00<00:02, 17.32it/s]Predicting DataLoader 0:  22%|██▏       | 14/64 [00:00<00:02, 16.87it/s]Predicting DataLoader 0:  23%|██▎       | 15/64 [00:00<00:02, 16.51it/s]Predicting DataLoader 0:  25%|██▌       | 16/64 [00:00<00:02, 16.25it/s]Predicting DataLoader 0:  27%|██▋       | 17/64 [00:01<00:02, 15.99it/s]Predicting DataLoader 0:  28%|██▊       | 18/64 [00:01<00:02, 15.66it/s]Predicting DataLoader 0:  30%|██▉       | 19/64 [00:01<00:02, 15.42it/s]Predicting DataLoader 0:  31%|███▏      | 20/64 [00:01<00:02, 15.25it/s]Predicting DataLoader 0:  33%|███▎      | 21/64 [00:01<00:02, 15.03it/s]Predicting DataLoader 0:  34%|███▍      | 22/64 [00:01<00:02, 14.83it/s]Predicting DataLoader 0:  36%|███▌      | 23/64 [00:01<00:02, 14.72it/s]Predicting DataLoader 0:  38%|███▊      | 24/64 [00:01<00:02, 14.58it/s]Predicting DataLoader 0:  39%|███▉      | 25/64 [00:01<00:02, 14.46it/s]Predicting DataLoader 0:  41%|████      | 26/64 [00:01<00:02, 14.35it/s]Predicting DataLoader 0:  42%|████▏     | 27/64 [00:01<00:02, 14.21it/s]Predicting DataLoader 0:  44%|████▍     | 28/64 [00:01<00:02, 14.09it/s]Predicting DataLoader 0:  45%|████▌     | 29/64 [00:02<00:02, 13.94it/s]Predicting DataLoader 0:  47%|████▋     | 30/64 [00:02<00:02, 13.83it/s]Predicting DataLoader 0:  48%|████▊     | 31/64 [00:02<00:02, 13.74it/s]Predicting DataLoader 0:  50%|█████     | 32/64 [00:02<00:02, 13.63it/s]Predicting DataLoader 0:  52%|█████▏    | 33/64 [00:02<00:02, 13.52it/s]Predicting DataLoader 0:  53%|█████▎    | 34/64 [00:02<00:02, 13.46it/s]Predicting DataLoader 0:  55%|█████▍    | 35/64 [00:02<00:02, 13.38it/s]Predicting DataLoader 0:  56%|█████▋    | 36/64 [00:02<00:02, 13.28it/s]Predicting DataLoader 0:  58%|█████▊    | 37/64 [00:02<00:02, 13.16it/s]Predicting DataLoader 0:  59%|█████▉    | 38/64 [00:02<00:01, 13.08it/s]Predicting DataLoader 0:  61%|██████    | 39/64 [00:02<00:01, 13.03it/s]Predicting DataLoader 0:  62%|██████▎   | 40/64 [00:03<00:01, 12.95it/s]Predicting DataLoader 0:  64%|██████▍   | 41/64 [00:03<00:01, 12.83it/s]Predicting DataLoader 0:  66%|██████▌   | 42/64 [00:03<00:01, 12.76it/s]Predicting DataLoader 0:  67%|██████▋   | 43/64 [00:03<00:01, 12.66it/s]Predicting DataLoader 0:  69%|██████▉   | 44/64 [00:03<00:01, 12.60it/s]Predicting DataLoader 0:  70%|███████   | 45/64 [00:03<00:01, 12.51it/s]Predicting DataLoader 0:  72%|███████▏  | 46/64 [00:03<00:01, 12.42it/s]Predicting DataLoader 0:  73%|███████▎  | 47/64 [00:03<00:01, 12.37it/s]Predicting DataLoader 0:  75%|███████▌  | 48/64 [00:03<00:01, 12.30it/s]Predicting DataLoader 0:  77%|███████▋  | 49/64 [00:04<00:01, 12.22it/s]Predicting DataLoader 0:  78%|███████▊  | 50/64 [00:04<00:01, 12.15it/s]Predicting DataLoader 0:  80%|███████▉  | 51/64 [00:04<00:01, 12.04it/s]Predicting DataLoader 0:  81%|████████▏ | 52/64 [00:04<00:01, 11.98it/s]Predicting DataLoader 0:  83%|████████▎ | 53/64 [00:04<00:00, 11.85it/s]Predicting DataLoader 0:  84%|████████▍ | 54/64 [00:04<00:00, 11.80it/s]Predicting DataLoader 0:  86%|████████▌ | 55/64 [00:04<00:00, 11.70it/s]Predicting DataLoader 0:  88%|████████▊ | 56/64 [00:04<00:00, 11.62it/s]Predicting DataLoader 0:  89%|████████▉ | 57/64 [00:04<00:00, 11.53it/s]Predicting DataLoader 0:  91%|█████████ | 58/64 [00:05<00:00, 11.47it/s]Predicting DataLoader 0:  92%|█████████▏| 59/64 [00:05<00:00, 11.36it/s]Predicting DataLoader 0:  94%|█████████▍| 60/64 [00:05<00:00, 11.29it/s]Predicting DataLoader 0:  95%|█████████▌| 61/64 [00:05<00:00, 11.19it/s]Predicting DataLoader 0:  97%|█████████▋| 62/64 [00:05<00:00, 11.10it/s]Predicting DataLoader 0:  98%|█████████▊| 63/64 [00:05<00:00, 11.00it/s]Predicting DataLoader 0: 100%|██████████| 64/64 [00:05<00:00, 10.83it/s]Predicting DataLoader 0: 100%|██████████| 64/64 [00:05<00:00, 10.74it/s]
-  CometKiwi mean kn→en: 0.8412
-  CometKiwi mean en→kn: 0.8623
-
-======================================================================
-STAGE 3: COMET-DA (reference-based)
-======================================================================
-Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 6263.89it/s]
-Lightning automatically upgraded your loaded checkpoint from v1.8.3.post1 to v2.6.5. To apply the upgrade to your files permanently, run `python -m pytorch_lightning.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--Unbabel--wmt22-comet-da/snapshots/2760a223ac957f30acfb18c8aa649b01cf1d75f2/checkpoints/model.ckpt`
-Encoder model frozen.
-/root/server_ai/surya_env/lib/python3.12/site-packages/pytorch_lightning/core/saving.py:197: Found keys that are not in the model state dict but in the checkpoint: ['encoder.model.embeddings.position_ids']
-  scoring kn→en (1012)...
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-/root/server_ai/surya_env/lib/python3.12/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: 0it [00:00, ?it/s]Predicting: 0it [00:00, ?it/s]Predicting DataLoader 0:   0%|          | 0/64 [00:00<?, ?it/s]Predicting DataLoader 0:   2%|▏         | 1/64 [00:00<00:04, 13.21it/s]Predicting DataLoader 0:   3%|▎         | 2/64 [00:00<00:04, 14.50it/s]Predicting DataLoader 0:   5%|▍         | 3/64 [00:00<00:04, 13.57it/s]Predicting DataLoader 0:   6%|▋         | 4/64 [00:00<00:04, 13.30it/s]Predicting DataLoader 0:   8%|▊         | 5/64 [00:00<00:04, 12.83it/s]Predicting DataLoader 0:   9%|▉         | 6/64 [00:00<00:04, 12.24it/s]Predicting DataLoader 0:  11%|█         | 7/64 [00:00<00:04, 11.99it/s]Predicting DataLoader 0:  12%|█▎        | 8/64 [00:00<00:04, 11.79it/s]Predicting DataLoader 0:  14%|█▍        | 9/64 [00:00<00:04, 11.58it/s]Predicting DataLoader 0:  16%|█▌        | 10/64 [00:00<00:04, 11.43it/s]Predicting DataLoader 0:  17%|█▋        | 11/64 [00:00<00:04, 11.24it/s]Predicting DataLoader 0:  19%|█▉        | 12/64 [00:01<00:04, 11.12it/s]Predicting DataLoader 0:  20%|██        | 13/64 [00:01<00:04, 10.99it/s]Predicting DataLoader 0:  22%|██▏       | 14/64 [00:01<00:04, 10.87it/s]Predicting DataLoader 0:  23%|██▎       | 15/64 [00:01<00:04, 10.66it/s]Predicting DataLoader 0:  25%|██▌       | 16/64 [00:01<00:04, 10.54it/s]Predicting DataLoader 0:  27%|██▋       | 17/64 [00:01<00:04, 10.35it/s]Predicting DataLoader 0:  28%|██▊       | 18/64 [00:01<00:04, 10.19it/s]Predicting DataLoader 0:  30%|██▉       | 19/64 [00:01<00:04, 10.09it/s]Predicting DataLoader 0:  31%|███▏      | 20/64 [00:02<00:04,  9.94it/s]Predicting DataLoader 0:  33%|███▎      | 21/64 [00:02<00:04,  9.85it/s]Predicting DataLoader 0:  34%|███▍      | 22/64 [00:02<00:04,  9.74it/s]Predicting DataLoader 0:  36%|███▌      | 23/64 [00:02<00:04,  9.63it/s]Predicting DataLoader 0:  38%|███▊      | 24/64 [00:02<00:04,  9.53it/s]Predicting DataLoader 0:  39%|███▉      | 25/64 [00:02<00:04,  9.43it/s]Predicting DataLoader 0:  41%|████      | 26/64 [00:02<00:04,  9.36it/s]Predicting DataLoader 0:  42%|████▏     | 27/64 [00:02<00:03,  9.29it/s]Predicting DataLoader 0:  44%|████▍     | 28/64 [00:03<00:03,  9.18it/s]Predicting DataLoader 0:  45%|████▌     | 29/64 [00:03<00:03,  9.12it/s]Predicting DataLoader 0:  47%|████▋     | 30/64 [00:03<00:03,  9.05it/s]Predicting DataLoader 0:  48%|████▊     | 31/64 [00:03<00:03,  8.97it/s]Predicting DataLoader 0:  50%|█████     | 32/64 [00:03<00:03,  8.92it/s]Predicting DataLoader 0:  52%|█████▏    | 33/64 [00:03<00:03,  8.85it/s]Predicting DataLoader 0:  53%|█████▎    | 34/64 [00:03<00:03,  8.76it/s]Predicting DataLoader 0:  55%|█████▍    | 35/64 [00:04<00:03,  8.71it/s]Predicting DataLoader 0:  56%|█████▋    | 36/64 [00:04<00:03,  8.64it/s]Predicting DataLoader 0:  58%|█████▊    | 37/64 [00:04<00:03,  8.60it/s]Predicting DataLoader 0:  59%|█████▉    | 38/64 [00:04<00:03,  8.53it/s]Predicting DataLoader 0:  61%|██████    | 39/64 [00:04<00:02,  8.48it/s]Predicting DataLoader 0:  62%|██████▎   | 40/64 [00:04<00:02,  8.45it/s]Predicting DataLoader 0:  64%|██████▍   | 41/64 [00:04<00:02,  8.37it/s]Predicting DataLoader 0:  66%|██████▌   | 42/64 [00:05<00:02,  8.31it/s]Predicting DataLoader 0:  67%|██████▋   | 43/64 [00:05<00:02,  8.27it/s]Predicting DataLoader 0:  69%|██████▉   | 44/64 [00:05<00:02,  8.19it/s]Predicting DataLoader 0:  70%|███████   | 45/64 [00:05<00:02,  8.14it/s]Predicting DataLoader 0:  72%|███████▏  | 46/64 [00:05<00:02,  8.10it/s]Predicting DataLoader 0:  73%|███████▎  | 47/64 [00:05<00:02,  8.04it/s]Predicting DataLoader 0:  75%|███████▌  | 48/64 [00:06<00:02,  7.99it/s]Predicting DataLoader 0:  77%|███████▋  | 49/64 [00:06<00:01,  7.93it/s]Predicting DataLoader 0:  78%|███████▊  | 50/64 [00:06<00:01,  7.88it/s]Predicting DataLoader 0:  80%|███████▉  | 51/64 [00:06<00:01,  7.83it/s]Predicting DataLoader 0:  81%|████████▏ | 52/64 [00:06<00:01,  7.77it/s]Predicting DataLoader 0:  83%|████████▎ | 53/64 [00:06<00:01,  7.71it/s]Predicting DataLoader 0:  84%|████████▍ | 54/64 [00:07<00:01,  7.65it/s]Predicting DataLoader 0:  86%|████████▌ | 55/64 [00:07<00:01,  7.60it/s]Predicting DataLoader 0:  88%|████████▊ | 56/64 [00:07<00:01,  7.55it/s]Predicting DataLoader 0:  89%|████████▉ | 57/64 [00:07<00:00,  7.50it/s]Predicting DataLoader 0:  91%|█████████ | 58/64 [00:07<00:00,  7.44it/s]Predicting DataLoader 0:  92%|█████████▏| 59/64 [00:07<00:00,  7.39it/s]Predicting DataLoader 0:  94%|█████████▍| 60/64 [00:08<00:00,  7.33it/s]Predicting DataLoader 0:  95%|█████████▌| 61/64 [00:08<00:00,  7.28it/s]Predicting DataLoader 0:  97%|█████████▋| 62/64 [00:08<00:00,  7.20it/s]Predicting DataLoader 0:  98%|█████████▊| 63/64 [00:08<00:00,  7.10it/s]Predicting DataLoader 0: 100%|██████████| 64/64 [00:09<00:00,  7.10it/s]Predicting DataLoader 0: 100%|██████████| 64/64 [00:09<00:00,  7.08it/s]
-  scoring en→kn (1012)...
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-/root/server_ai/surya_env/lib/python3.12/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-Predicting: 0it [00:00, ?it/s]Predicting: 0it [00:00, ?it/s]Predicting DataLoader 0:   0%|          | 0/64 [00:00<?, ?it/s]Predicting DataLoader 0:   2%|▏         | 1/64 [00:00<00:03, 16.39it/s]Predicting DataLoader 0:   3%|▎         | 2/64 [00:00<00:04, 13.09it/s]Predicting DataLoader 0:   5%|▍         | 3/64 [00:00<00:05, 11.75it/s]Predicting DataLoader 0:   6%|▋         | 4/64 [00:00<00:05, 11.27it/s]Predicting DataLoader 0:   8%|▊         | 5/64 [00:00<00:05, 11.09it/s]Predicting DataLoader 0:   9%|▉         | 6/64 [00:00<00:05, 10.71it/s]Predicting DataLoader 0:  11%|█         | 7/64 [00:00<00:05, 10.49it/s]Predicting DataLoader 0:  12%|█▎        | 8/64 [00:00<00:05, 10.29it/s]Predicting DataLoader 0:  14%|█▍        | 9/64 [00:00<00:05, 10.03it/s]Predicting DataLoader 0:  16%|█▌        | 10/64 [00:01<00:05,  9.80it/s]Predicting DataLoader 0:  17%|█▋        | 11/64 [00:01<00:05,  9.71it/s]Predicting DataLoader 0:  19%|█▉        | 12/64 [00:01<00:05,  9.63it/s]Predicting DataLoader 0:  20%|██        | 13/64 [00:01<00:05,  9.48it/s]Predicting DataLoader 0:  22%|██▏       | 14/64 [00:01<00:05,  9.39it/s]Predicting DataLoader 0:  23%|██▎       | 15/64 [00:01<00:05,  9.28it/s]Predicting DataLoader 0:  25%|██▌       | 16/64 [00:01<00:05,  9.23it/s]Predicting DataLoader 0:  27%|██▋       | 17/64 [00:01<00:05,  9.17it/s]Predicting DataLoader 0:  28%|██▊       | 18/64 [00:01<00:05,  9.04it/s]Predicting DataLoader 0:  30%|██▉       | 19/64 [00:02<00:05,  8.92it/s]Predicting DataLoader 0:  31%|███▏      | 20/64 [00:02<00:04,  8.83it/s]Predicting DataLoader 0:  33%|███▎      | 21/64 [00:02<00:04,  8.74it/s]Predicting DataLoader 0:  34%|███▍      | 22/64 [00:02<00:04,  8.65it/s]Predicting DataLoader 0:  36%|███▌      | 23/64 [00:02<00:04,  8.57it/s]Predicting DataLoader 0:  38%|███▊      | 24/64 [00:02<00:04,  8.50it/s]Predicting DataLoader 0:  39%|███▉      | 25/64 [00:02<00:04,  8.45it/s]Predicting DataLoader 0:  41%|████      | 26/64 [00:03<00:04,  8.40it/s]Predicting DataLoader 0:  42%|████▏     | 27/64 [00:03<00:04,  8.30it/s]Predicting DataLoader 0:  44%|████▍     | 28/64 [00:03<00:04,  8.25it/s]Predicting DataLoader 0:  45%|████▌     | 29/64 [00:03<00:04,  8.18it/s]Predicting DataLoader 0:  47%|████▋     | 30/64 [00:03<00:04,  8.14it/s]Predicting DataLoader 0:  48%|████▊     | 31/64 [00:03<00:04,  8.09it/s]Predicting DataLoader 0:  50%|█████     | 32/64 [00:03<00:03,  8.03it/s]Predicting DataLoader 0:  52%|█████▏    | 33/64 [00:04<00:03,  7.98it/s]Predicting DataLoader 0:  53%|█████▎    | 34/64 [00:04<00:03,  7.92it/s]Predicting DataLoader 0:  55%|█████▍    | 35/64 [00:04<00:03,  7.87it/s]Predicting DataLoader 0:  56%|█████▋    | 36/64 [00:04<00:03,  7.80it/s]Predicting DataLoader 0:  58%|█████▊    | 37/64 [00:04<00:03,  7.76it/s]Predicting DataLoader 0:  59%|█████▉    | 38/64 [00:04<00:03,  7.73it/s]Predicting DataLoader 0:  61%|██████    | 39/64 [00:05<00:03,  7.70it/s]Predicting DataLoader 0:  62%|██████▎   | 40/64 [00:05<00:03,  7.63it/s]Predicting DataLoader 0:  64%|██████▍   | 41/64 [00:05<00:03,  7.57it/s]Predicting DataLoader 0:  66%|██████▌   | 42/64 [00:05<00:02,  7.50it/s]Predicting DataLoader 0:  67%|██████▋   | 43/64 [00:05<00:02,  7.47it/s]Predicting DataLoader 0:  69%|██████▉   | 44/64 [00:05<00:02,  7.44it/s]Predicting DataLoader 0:  70%|███████   | 45/64 [00:06<00:02,  7.36it/s]Predicting DataLoader 0:  72%|███████▏  | 46/64 [00:06<00:02,  7.32it/s]Predicting DataLoader 0:  73%|███████▎  | 47/64 [00:06<00:02,  7.27it/s]Predicting DataLoader 0:  75%|███████▌  | 48/64 [00:06<00:02,  7.22it/s]Predicting DataLoader 0:  77%|███████▋  | 49/64 [00:06<00:02,  7.16it/s]Predicting DataLoader 0:  78%|███████▊  | 50/64 [00:07<00:01,  7.10it/s]Predicting DataLoader 0:  80%|███████▉  | 51/64 [00:07<00:01,  7.04it/s]Predicting DataLoader 0:  81%|████████▏ | 52/64 [00:07<00:01,  6.98it/s]Predicting DataLoader 0:  83%|████████▎ | 53/64 [00:07<00:01,  6.93it/s]Predicting DataLoader 0:  84%|████████▍ | 54/64 [00:07<00:01,  6.88it/s]Predicting DataLoader 0:  86%|████████▌ | 55/64 [00:08<00:01,  6.83it/s]Predicting DataLoader 0:  88%|████████▊ | 56/64 [00:08<00:01,  6.77it/s]Predicting DataLoader 0:  89%|████████▉ | 57/64 [00:08<00:01,  6.72it/s]Predicting DataLoader 0:  91%|█████████ | 58/64 [00:08<00:00,  6.67it/s]Predicting DataLoader 0:  92%|█████████▏| 59/64 [00:08<00:00,  6.62it/s]Predicting DataLoader 0:  94%|█████████▍| 60/64 [00:09<00:00,  6.56it/s]Predicting DataLoader 0:  95%|█████████▌| 61/64 [00:09<00:00,  6.51it/s]Predicting DataLoader 0:  97%|█████████▋| 62/64 [00:09<00:00,  6.45it/s]Predicting DataLoader 0:  98%|█████████▊| 63/64 [00:09<00:00,  6.36it/s]Predicting DataLoader 0: 100%|██████████| 64/64 [00:10<00:00,  6.35it/s]Predicting DataLoader 0: 100%|██████████| 64/64 [00:10<00:00,  6.33it/s]
-  COMET-DA mean kn→en: 0.8409
-  COMET-DA mean en→kn: 0.8405
-
-======================================================================
-STAGE 4: sacrebleu BLEU + chrF
-======================================================================
-  BLEU kn→en: 26.81
-  BLEU en→kn: 17.98
-  chrF kn→en: 55.39
-  chrF en→kn: 55.56
-
-Report → /root/server_ai/ControlMT/logs/release_flores_devtest_report.md
