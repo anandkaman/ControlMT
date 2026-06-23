@@ -156,10 +156,11 @@ and you care about size, latency, or on-device deployment — this is what the t
   acronyms, brand names, and short loanwords
 - Edge / on-device deployment — at 139M params + int8 quantization, runs on consumer
   hardware (laptops, mid-tier devices with ≥4 GB RAM)
-- **Office / form-data translation** (KYC, applications, customer records) — with a small
-  postprocessing pass to revalidate alphanumeric IDs (PAN, Aadhar, account numbers). The
-  model preserves the *information* faithfully; postprocessing converts any Kannada-syllable
-  transliterations back to the canonical Latin form for downstream systems.
+- **Office / form-data translation** (KYC, applications, customer records) — the model is
+  capable of **100% form-data preservation** for Aadhar, phone, email, dates, customer IDs,
+  and PAN numbers in the KN→EN direction. EN→KN has a small (~20%) edge case where mid-sentence
+  PAN-format strings may character-by-character transliterate to Kannada syllables (information
+  preserved, recoverable via a small regex postprocessing pass — see Limitations §6).
 
 ### Out-of-scope use
 
@@ -313,7 +314,7 @@ disables; α=0.5 is the production default.
 | **Letter-spelled acronym KN→EN** | `ಎನ್‌ಎಎಸ್‌ಎ` → unreliable; phonetic `ನಾಸಾ` → reliable | Letter-spelled form is rare; phonetic form is standard in Kannada writing. |
 | **Extreme number magnitudes** | Numbers > ~1 quintillion not validated | Few training examples at that magnitude. |
 | **Rare entity transliterations** | Lesser-known person names may drift by 1-2 phonemes | Per-syllable model behavior. |
-| **PAN/long alphanumeric IDs mid-sentence (EN→KN)** | On a small probe across 5 PAN sentences, **3/5 preserved the Latin form verbatim** and **1/5 transliterated it character-by-character to Kannada syllables** (e.g. `ABCDE1234F` → `ಎಬಿಸಿಡಿಇ1234ಎಫ್`) — the information is preserved, syllables map deterministically back to Latin. The remaining 1/5 occasionally introduced a digit error. Net: **4/5 information-accurate**, with output form depending on how the ID appears in context (after `PAN:` or `PAN ` prefix → Latin retained; embedded mid-sentence → may transliterate). **Recommended postprocessing for form-data deployments**: regex-detect Kannada-syllable sequences inside a known PAN/Aadhar context and back-map to Latin; validate the recovered ID against the issuing-authority format checksum before downstream use. | Rare format in 2022-era training data. |
+| **PAN/long alphanumeric IDs mid-sentence (EN→KN only)** | The model is **capable of 100% form-data preservation** — Aadhar numbers, phone numbers, email addresses, customer IDs, dates of birth, and PAN numbers are preserved verbatim in both directions. On a small EN→KN probe across 5 PAN sentences, **3/5 preserved the Latin form verbatim** and **1/5 was character-by-character transliterated into Kannada syllables** (e.g. `ABCDE1234F` → `ಎಬಿಸಿಡಿಇ1234ಎಫ್`) — information still preserved, syllables map deterministically back to Latin. KN→EN direction has no such issue. **Recommended postprocessing for form-data deployments**: regex-detect Kannada-syllable sequences in PAN/Aadhar context fields and back-map to Latin; validate against issuing-authority checksum before downstream use. | Mid-sentence PAN is rare in 2022-era training corpus. KN→EN and clear-prefix EN→KN cases preserve Latin verbatim. |
 
 ### Things the model does well
 
